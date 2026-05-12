@@ -1,0 +1,4 @@
+#!/bin/bash
+west build -p -b native_sim/native/64 01_test/
+west build -t run
+

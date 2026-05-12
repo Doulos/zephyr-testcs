@@ -1,0 +1,32 @@
+// Copyright (c) 2024-2026 Doulos
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "gdb",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "gdbTarget": "localhost:3333",
+            "cwd": "${workspaceFolder}/01_test",
+            "toolchainPrefix": "${config:zephyrSDK}/${config:arch}-zephyr-eabi/bin/${config:arch}-zephyr-eabi",  // needed for the gdb,
+            "executable": "/zephyr-training/build/zephyr/zephyr.elf",
+            "rtos": "Zephyr",
+            "preLaunchTask": "dbgserver"
+        },
+        {
+            "name": "qemu",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "gdbTarget": "localhost:1234",
+            "cwd": "${workspaceFolder}/01_test",
+            "toolchainPrefix": "${config:zephyrSDK}/${config:arch}-zephyr-eabi/bin/${config:arch}-zephyr-eabi",  // needed for the gdb,
+            "executable": "${config:zephyrBuild}/zephyr/zephyr.elf",
+            "rtos": "Zephyr",
+            "preLaunchTask": "dbgserver qemu",
+            "postDebugTask": "stop dbgserver"
+        }
+    ],
+}

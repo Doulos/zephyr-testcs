@@ -1,0 +1,33 @@
+// Copyright (c) 2024-2026 Doulos
+
+{
+    "zephyrVenv" : "/opt/venv",
+    "zephyrSDK": "/opt/toolchains/zephyr-sdk-0.16.8",
+    "csbase" : "/zephyr-training",
+    "zephyrBuild": "${config:csbase}/build",
+    "arch": "arm",
+
+    "cmake.configureOnOpen": false,
+
+    "C_Cpp.default.compilerPath": "${config:zephyrSDK}",
+    "C_Cpp.default.compileCommands": "${config:zephyrBuild}/compile_commands.json",
+
+    "files.associations": {
+        "*.h": "c"
+    },
+    "files.watcherExclude": {
+        "/zephyr-training/build/*": true,
+    },
+    "files.exclude": {
+        "**/.vscode": true,
+        "READ_THIS.txt": true
+    },
+
+    "cortex-debug.variableUseNaturalFormat": true,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "terminal.integrated.cwd": "${config:csbase}/labs",
+
+    "chat.agent.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "chat.disableAIFeatures": true
+}
